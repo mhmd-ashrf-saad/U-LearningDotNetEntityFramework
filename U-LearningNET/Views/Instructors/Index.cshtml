@@ -1,0 +1,115 @@
+﻿@model IEnumerable<U_LearningNET.Models.Instructors>
+
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Styles/join_as_instructor.css" rel="stylesheet" />
+<main class="instructor-content">
+    <div class="instructor-container">
+        <section class="instructor-header">
+            <h1 class="instructor-title">انضم إلى فريق المحاضرين</h1>
+            <p class="instructor-subtitle">شارك معرفتك وخبراتك مع المتعلمين حول العالم</p>
+        </section>
+
+        <div class="instructor-grid">
+            <section class="benefits-section">
+                <div class="benefits-card">
+                    <h2>مميزات الانضمام</h2>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div class="benefit-details">
+                                <h3>تأثير إيجابي</h3>
+                                <p>ساعد الآخرين في تحقيق أهدافهم التعليمية</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-chart-line"></i>
+                            <div class="benefit-details">
+                                <h3>دخل إضافي</h3>
+                                <p>اكسب دخلاً من خلال مشاركة خبراتك</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-users"></i>
+                            <div class="benefit-details">
+                                <h3>مجتمع متعلم</h3>
+                                <p>انضم إلى مجتمع من المحاضرين المحترفين</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="application-section">
+                <div class="application-card">
+                    <h2>تقديم طلب الانضمام</h2>
+                    <form class="application-form">
+                        <div class="form-group">
+                            <label for="fullName">الاسم الكامل</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specialization">التخصص</label>
+                            <input type="text" id="specialization" name="specialization" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">سنوات الخبرة</label>
+                            <input type="number" id="experience" name="experience" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">نبذة عنك</label>
+                            <textarea id="bio" name="bio" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="cv">السيرة الذاتية (PDF)</label>
+                            <input type="file" id="cv" name="cv" accept=".pdf" required>
+                        </div>
+                        <button type="submit" class="btn-primary">تقديم الطلب</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+@*<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.bio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Users.first_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.bio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Users.first_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.instructor_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.instructor_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.instructor_id })
+        </td>
+    </tr>
+}
+
+</table>*@

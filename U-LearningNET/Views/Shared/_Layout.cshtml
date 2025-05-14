@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="description" content="منصة U-learning تقدم مسارات تعليمية متكاملة في مختلف المجالات التقنية والتطويرية">
+    <meta name="keywords" content="تعلم إلكتروني, دورات, برمجة, تصميم, تطوير">
+    <meta name="author" content="U-learning">
+    <meta property="og:title" content="U-learning - منصة التعلم الإلكتروني">
+    <meta property="og:description" content="انضم لمسارات تعليمية متكاملة وتعلم المهارات العملية خطوة بخطوة">
+    <meta property="og:image" content="~/Images/Logo.png">
+    <meta property="og:url" content="https://u-learning.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="image/Logo.png" type="image/icon type">
+    <link href="img/favicon.ico" rel="icon">
+    <title>@ViewBag.Title - U-learning - منصة التعلم الإلكتروني</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Styles")
+</head>
+<body>
+    <div style="height:106px">
+        <header class="site-header" role="banner">
+            <div class="header-container">
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand">
+                    <h1 id="logo-text"><img src="@Url.Content("~/Images/Logo.png")" id="Logo" alt="شعار U-learning" /></h1>
+                </a>
+                <nav class="nav-section">
+                    <a href="@Url.Action("Index", "Courses")" class="nav-link">تصفّح المسارات</a>
+                </nav>
+                <div class="search-section">
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="ابحث عن ...." aria-label="بحث" />
+                        <button class="search-button">ابحث</button>
+                    </div>
+                </div>
+                <div class="auth-section">
+                    <a href="@Url.Action("Login", "Account")">
+                        <button class="btn-outline auth-header">تسجيل دخول</button>
+                    </a>
+                    <a href="@Url.Action("Register", "Account")">
+                        <button class="btn-primary auth-header">إنشاء حساب</button>
+                    </a>
+                </div>
+            </div>
+        </header>
+    </div>
+    <!-- content -->
+    
+        @RenderBody()
+        
+    
+        </div>
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h2>U-<span class="footer-brand-span">Learning</span></h2>
+                </div>
+                <nav class="footer-nav">
+                    <a href="@Url.Action("Index", "Home")" class="footer-link">الرئيسية</a>
+                    <a href="@Url.Action("About", "Home")" class="footer-link">عننا</a>
+                    <a href="@Url.Action("Contact", "Home")" class="footer-link">اتصل بنا</a>
+                    <a href="html/AllCourses.html" class="footer-link">عرض المسارات</a>
+                    <a href="@Url.Action("Index","Instructors")" class="footer-link">انضم كمحاضر</a>
+                </nav>
+                <div class="footer-copyright">
+                    <p>جميع الحقوق محفوظة © 2025</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src='Scripts/main.js'></script>
+        <script src="Scripts/header.js"></script>
+        @RenderSection("scripts", required: false)
+</body>
+</html>

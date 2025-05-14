@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e1c88403006340f68dd47247adcd3ac1" Name="Diagram1">
+        <EntityTypeShape EntityType="collegeSystemModel.Courses" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="collegeSystemModel.Materials" Width="1.5" PointX="7.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="collegeSystemModel.Posts" Width="1.5" PointX="7.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="collegeSystemModel.Instructors" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="collegeSystemModel.Staff" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="collegeSystemModel.Students" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="collegeSystemModel.Users" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="collegeSystemModel.FK__Courses__instruc__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="collegeSystemModel.FK__Materials__cours__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="collegeSystemModel.FK__Posts__course_id__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="collegeSystemModel.FK__Posts__user_id__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="collegeSystemModel.FK__Instructo__instr__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="collegeSystemModel.FK__Staff__staff_id__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="collegeSystemModel.FK__Students__studen__398D8EEE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

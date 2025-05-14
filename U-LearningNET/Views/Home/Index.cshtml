@@ -1,0 +1,158 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<link href="~/Styles/home.css" rel="stylesheet" />
+<main class="main-content">
+    <div class="content-container">
+
+        <section class="text-section">
+            <div class="text-content">
+                <h1 class="main-title">انضم لمسارات تعليمية متكاملة</h1>
+                <p class="description">
+                    ابدأ رحلتك في التعلم من الصفر مع المسارات الكاملة، وتعلّم المهارات العملية خطوة بخطوة حتى
+                    الاحتراف، بأسلوب بسيط وسهل يناسب المبتدئين.
+                </p>
+                <div class="cta-container">
+                    @*todo: all courses page*@
+                    <a href="html/AllCourses.html">
+                        <button class="cta-button">انضم الآن</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="image-section">
+            <img src="Images/Home/banner.png" alt="صورة تعليمية" class="hero-image" loading="lazy">
+        </section>
+
+    </div>
+
+    <!-- Educational Journey Section -->
+    <section class="journey-section">
+        <div class="journey-container">
+            <h2 class="section-title">كيف نمهد لك</h2>
+            <h3 class="section-subtitle">رحلتك التعليمية من خلال المسارات</h3>
+
+            <div class="features-container">
+                <div class="feature-card" role="article">
+                    <div class="feature-icon">
+                        <img src="Images/Home/interactive.png" alt="تعليم تفاعلي" loading="lazy">
+                    </div>
+                    <h4>تعليم تفاعلي</h4>
+                    <p>
+                        نقدم تجربة تعليمية فريدة تجمع بين التطبيق العملي، الأنشطة التشاركية والتواصل المباشر، مما
+                        يساهم في فهم العميق والتعلم المستدام
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="Images/Home/practical.png" alt="منهج عملي">
+                    </div>
+                    <h4>منهج عملي</h4>
+                    <p>
+                        مشاريع دراسية عملية تساعدك على نقل خبراتك إلى سوق العمل، وتمرن والتدرب على تطبيقات احترافية
+                        لتنمية مهاراتك والاستعداد للعمل بكفاءة
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="Images/Home/support.png" alt="دعم مستمر">
+                    </div>
+                    <h4>دعم مستمر</h4>
+                    <p>
+                        نحن معك في كل خطواتك بوقت استشارات مستمرة، مراجعة دورية وإجابات سريعة على استفساراتك لضمان
+                        تجربة تعليمية مناسبة وفعالة
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Courses Section -->
+    <section class="courses-section">
+        <h2 class="section-title" id="courses-title">أحدث الكورسات</h2>
+
+        <div class="courses-container">
+            <a href="html/course_pages/amir.html" class="course-link">
+                <div class="course-card" role="article">
+                    <div class="course-image">
+                        <img src="Images/Home/photoshop-course.png" alt="أساسيات برنامج فوتوشوب" loading="lazy">
+                    </div>
+                    <div class="course-info">
+                        <h4>أساسيات برنامج فوتوشوب</h4>
+                        <div class="course-meta">
+                            <div class="course-price">دورة مجانية</div>
+                            <div class="instructor-info">
+                                <div class="instructor-details">
+                                    <div class="instructor-name">محمد أمير</div>
+                                    <div class="instructor-title">مصمم جرافيك</div>
+                                </div>
+                                <div class="instructor">
+                                    <img src="Images/Home/amir.png" alt="المدرب">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-actions">
+                            <button class="course-btn btn-enroll">اشترك الآن</button>
+                            <button class="course-btn btn-details">الدخول للكورس</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="html/course_pages/elsrey.html">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="Images/Home/html-course.png" alt="لغة بناء المواقع HTML">
+                    </div>
+                    <div class="course-info">
+                        <h4>HTML لغة بناء المواقع </h4>
+                        <div class="course-meta">
+                            <div class="course-price">500 جنيه</div>
+                            <div class="instructor-info">
+                                <div class="instructor-details">
+                                    <div class="instructor-name">محمد السري</div>
+                                    <div class="instructor-title">مهندس برمجيات</div>
+                                </div>
+                                <div class="instructor">
+                                    <img src="Images/Home/srey.png" alt="المدرب">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-actions">
+                            <button class="course-btn btn-enroll">اشترك الآن</button>
+                            <button class="course-btn btn-details">الدخول للكورس</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="html/course_pages/ashraf.html">
+
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="Images/Home/cpp-course.png" alt="C++ أساسيات البرمجة بلغة">
+                    </div>
+                    <div class="course-info">
+                        <h4>C++ أساسيات البرمجة بلغة</h4>
+                        <div class="course-meta">
+                            <div class="course-price">500 جنيه</div>
+                            <div class="instructor-info">
+                                <div class="instructor-details">
+                                    <div class="instructor-name">محمد أشرف</div>
+                                    <div class="instructor-title">مهندس برمجيات</div>
+                                </div>
+                                <div class="instructor">
+                                    <img src="Images/Home/ashraf.png" alt="المدرب">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-actions">
+                            <button class="course-btn btn-enroll">اشترك الآن</button>
+                            <button class="course-btn btn-details">الدخول للكورس</button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+    </main> 
