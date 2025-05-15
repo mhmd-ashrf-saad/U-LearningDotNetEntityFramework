@@ -1,0 +1,352 @@
+:root {
+  --button: #836fff;
+  --primary: #211952;
+  --light: #f0f3ff;
+  --hover: #211951;
+  --active: #836fff;
+  --muted: rgba(73, 80, 87, 0.88);
+
+  --google-red: #c91717;
+  --border-radius-sm: 5px;
+  --text-light: #f0f3ff;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 100px;
+}
+.right-nav {
+  display: flex;
+  gap: 87px;
+}
+.right {
+  width: 37%;
+  margin-top: 70px;
+  margin-right: 0; /* Remove fixed margin-right: 100px */
+}
+.left {
+  width: 50vw;
+}
+.left img {
+  max-width: 100%;
+  height: auto; /* Maintains aspect ratio */
+}
+.card-header {
+  background: #e9ecef;
+  display: flex;
+  gap: 41px;
+  font-size: 20px;
+  border-bottom: none;
+}
+.card-header p {
+  cursor: pointer;
+  margin: 23px 22px 11px 0;
+}
+
+.card-header a {
+  color: #495057;
+  text-decoration: none;
+  z-index: 10;
+}
+.card-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content-container {
+  align-items: normal;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-body {
+  text-align: center;
+}
+.forget-pass {
+  text-align: right;
+}
+.login-form input {
+  width: 98%;
+  border-radius: 10px;
+  border-color: var(--button);
+  border-width: 1px;
+  height: 5vh;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#loc-card {
+  border: none;
+  box-shadow: 0 0 12px 0px rgba(136, 136, 136, 0.4);
+}
+.username {
+  background: url("../image/User.png") no-repeat scroll;
+  background-position: right 13px center;
+  padding-right: 35px;
+  background-size: 13px;
+}
+.password {
+  background: url("../image/pass.png") no-repeat scroll;
+  background-position: right 13px center;
+  padding-right: 35px;
+  background-size: 13px;
+}
+.forget-pass {
+  margin-top: 19px;
+  color: var(--muted);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+.forget-pass:hover {
+  color: #c81717;
+}
+#login-btn2 {
+  border-radius: 100px;
+  width: 82%;
+  font-size: 20px;
+  margin-top: 24px;
+}
+.login-auth p {
+  margin-top: 15px;
+  color: var(--muted);
+}
+.login-auth p span {
+  color: var(--button);
+  cursor: pointer;
+}
+.login-auth p span:hover {
+  text-decoration: underline;
+}
+.login-auth a {
+  text-decoration: none;
+  color: var(--button);
+  transition: all 0.4s ease-in-out;
+}
+.login-to-account {
+  color: var(--primary);
+  font-size: 24px;
+  font-weight: 500;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.divider-line {
+  height: 2px;
+  width: 135px;
+  background-color: #adb5bd;
+  border-radius: 10px;
+}
+.divider-text {
+  color: var(--muted);
+  font-size: 13px;
+  width: max-content;
+}
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.social-button {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+}
+
+.google-button {
+  width: 107px;
+  height: 31px;
+  background-color: var(--google-red);
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.google-text {
+  color: var(--text-light);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+}
+#facebook-login {
+  background-color: #310c7c;
+  color: white;
+}
+#google-login {
+  background-color: #c91717;
+  color: white;
+}
+.login-method {
+  display: flex;
+  justify-content: center;
+  gap: 44px;
+}
+
+.login-method button {
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  width: 32%;
+  height: 4vh;
+  font-size: 10px;
+  font-weight: 700;
+  transition: all 0.4s ease-in-out;
+}
+.login-method button:hover {
+  transform: scale(1.05);
+}
+.login-method button img {
+  margin-right: 9px;
+}
+.card {
+  margin-right: 100px;
+}
+.responsive-container{
+  display: none;
+}
+@media (max-width: 1027px) {
+  .content-container {
+    display: none;
+  }
+
+  .responsive-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #create-account {
+    text-align: center;
+    padding-top: 25px;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--primary);
+  }
+
+
+  .unknown {
+    height: 33px !important;
+  }
+
+  .sign-up-buttons {
+    display: inline-flex;
+    justify-content: center;
+    gap: 28px;
+    padding-top: 13px;
+  }
+
+  .google-login {
+    width: 175px;
+    height: 53px;
+    border-radius: 10px;
+    border: none;
+
+  }
+
+  .facebook-login {
+    width: 175px;
+    height: 53px;
+    border-radius: 10px;
+    border: none;
+  }
+
+  .sign-up-container {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    padding-top: 20px;
+    padding-bottom:23px;
+  }
+#username{
+  width: 378px;
+  height: 49px;
+  border-radius: 10px;
+  border: 1px solid var(--button);
+}
+  #email-responsive {
+    width: 378px;
+    height: 49px;
+    border-radius: 10px;
+    border: 1px solid var(--button);
+  }
+
+  #password-responsive {
+    width: 378px;
+    height: 49px;
+    border-radius: 10px;
+    border: 1px solid var(--button);
+  }
+
+  #forgot-pass {
+    color: #C81717;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    margin-bottom: 0;
+
+  }
+
+  .remember-me {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    justify-content: center;
+
+  }
+
+
+  .remember-me label {
+    color: var(--button);
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+  }
+
+  #signUp-btn-responsive {
+
+    width: 312px;
+    height: 52px;
+    border-radius: 100px;
+    color: #FFF;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+
+  }
+
+  .no-account {
+    padding-top: 25.5px;
+  }
+
+  .no-account p {
+    color: var(--button);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  .no-account span a{
+    color: var(--mint);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+
+  }
+
+}

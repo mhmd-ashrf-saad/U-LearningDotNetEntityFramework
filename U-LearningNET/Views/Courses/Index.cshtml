@@ -4,90 +4,38 @@
     ViewBag.Title = "Index";
 }
 <link href="~/Styles/AllCourses.css" rel="stylesheet" />
-@*Use for each to loop on courses instead of this static page*@
+
 <section class="courses-section">
-<h2 class="section-title" id="courses-title">أحدث الكورسات</h2>
-
-<div class="courses-container">
-    <a href="course_pages/amir.html">
-
-        <div class="course-card">
-            <div class="course-image">
-                <img src="../Images/Home/photoshop-course.png" alt="أساسيات برنامج فوتوشوب">
-            </div>
-            <div class="course-info">
-                <h4>أساسيات برنامج فوتوشوب</h4>
-                <div class="course-meta">
-                    <div class="course-price">دورة مجانية</div>
-                    <div class="instructor-info">
-                        <div class="instructor-details">
-                            <div class="instructor-name">محمد أمير</div>
-                            <div class="instructor-title">مصمم جرافيك</div>
+    <h2 class="section-title" id="courses-title">كل الكورسات</h2>
+    <div class="courses-container">
+        @foreach (var course in Model)
+        {
+            <a href="@Url.Action("Details", "Courses", new { id = course.course_id })">
+                <div class="course-card">
+                    <div class="course-image">
+                        <!--<img src="#" alt="@course.title" />-->@* add course image *@
+                    </div>
+                    <div class="course-info">
+                        <h4>@course.title</h4>
+                        <div class="course-meta">
+                            <div class="course-price">Price</div>@* add course price *@ 
+                            <div class="instructor-info">
+                                <div class="instructor-details">
+                                    <div class="instructor-name">@course.Instructors.Users.first_name @course.Instructors.Users.last_name </div>
+                                    <div class="instructor-title">@course.Instructors.Users.profile</div>
+                                </div>
+                                <div class="instructor">
+                                    <img src="@course.Instructors.Users.photo" alt="المدرب" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="instructor">
-                            <img src="../Images/Home/amir.png" alt="المدرب">
+                        <div class="course-actions">
+                            <button class="course-btn btn-enroll">اشترك الآن</button>
+                            <button class="course-btn btn-details">الدخول للكورس</button>
                         </div>
                     </div>
                 </div>
-                <div class="course-actions">
-                    <button class="course-btn btn-enroll">اشترك الآن</button>
-                    <button class="course-btn btn-details">الدخول للكورس</button>
-                </div>
-            </div>
-        </div>
-    </a>
-    <a href="course_pages/elsrey.html">
-        <div class="course-card">
-            <div class="course-image">
-                <img src="../Images/Home/html-course.png" alt="لغة بناء المواقع HTML">
-            </div>
-            <div class="course-info">
-                <h4>HTML لغة بناء المواقع </h4>
-                <div class="course-meta">
-                    <div class="course-price">500 جنيه</div>
-                    <div class="instructor-info">
-                        <div class="instructor-details">
-                            <div class="instructor-name">محمد السري</div>
-                            <div class="instructor-title">مهندس برمجيات</div>
-                        </div>
-                        <div class="instructor">
-                            <img src="../Images/Home/srey.png" alt="المدرب">
-                        </div>
-                    </div>
-                </div>
-                <div class="course-actions">
-                    <button class="course-btn btn-enroll">اشترك الآن</button>
-                    <button class="course-btn btn-details">الدخول للكورس</button>
-                </div>
-            </div>
-        </div>
-    </a>
-    <a href="course_pages/ashraf.html">
-
-        <div class="course-card">
-            <div class="course-image">
-                <img src="../Images/Home/cpp-course.png" alt="C++ أساسيات البرمجة بلغة">
-            </div>
-            <div class="course-info">
-                <h4>C++ أساسيات البرمجة بلغة</h4>
-                <div class="course-meta">
-                    <div class="course-price">500 جنيه</div>
-                    <div class="instructor-info">
-                        <div class="instructor-details">
-                            <div class="instructor-name">محمد أشرف</div>
-                            <div class="instructor-title">مهندس برمجيات</div>
-                        </div>
-                        <div class="instructor">
-                            <img src="../Images/Home/ashraf.png" alt="المدرب">
-                        </div>
-                    </div>
-                </div>
-                <div class="course-actions">
-                    <button class="course-btn btn-enroll">اشترك الآن</button>
-                    <button class="course-btn btn-details">الدخول للكورس</button>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-    </section>
+            </a>
+        }
+    </div>
+</section>

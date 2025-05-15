@@ -1,0 +1,86 @@
+﻿@model U_LearningNET.Models.Users
+
+@{
+    ViewBag.Title = "Register";
+}
+<link href="~/Styles/signUp_ar.css" rel="stylesheet" />
+
+
+<div class="content-container">
+    <div class="right">
+        <!-- Card start -->
+        <div class="card" id="loc-card">
+            <div class="card-header">
+                <a href="@Url.Action("Login", "Users")">
+                    <p>تسجيل دخول</p>
+                </a>
+                <a href="@Url.Action("Register", "Users")">
+                    <p id="signUp">إنشاء حساب</p>
+                </a>
+
+            </div>
+            <div class="card-body">
+                <p class="login-to-account">انضم إلينا وأنشئ حساب جديد</p>
+                <div class="login-form">
+                    <input type="text" class="username" placeholder="اسم المستخدم">
+                    <input type="password" class="password " placeholder="كلمة المرور">
+                    <input type="password" class="password " placeholder="تأكيد كلمة المرور">
+                </div>
+                <div class="login-auth">
+                    <button class="btn-primary" id="login-btn2">إنشاء حساب</button>
+                    <p>
+                        لديك حساب بالفعل؟ <span>
+                            <a href="@Url.Action("Login", "Users")">
+                                تسجيل الدخول
+                            </a>
+                        </span>
+                    </p>
+                </div>
+                <div class="divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-text">أو سجل باستخدام</span>
+                    <span class="divider-line"></span>
+                </div>
+                <div class="login-method">
+                    <button id="google-login">Google Account<img src="~/Images/Google%20Plus.png"></button>
+                    <button id="facebook-login">Facebook<img src="~/Images/facebook.svg"></button>
+                </div>
+            </div>
+        </div>
+        <!-- Card end -->
+    </div>
+    <div class="left">
+        <div class="image">
+            <img src="~/Images/LoginPage/illustration.png" alt="banner">
+        </div>
+    </div>
+</div>
+<!--responsive content start-->
+<div class="responsive-container">
+    <div class="signUpImage">
+        <img src="~/Images/signUp/Frame.svg" alt="signUpImage">
+    </div>
+    <span id="create-account">انشئ حساب جديد</span>
+    <div class="sign-up-buttons">
+        <button class="google-login">Google<img src="~/Images/Google%20Plus.png"></button>
+        <button class="facebook-login">Facebook<img src="~/Images/facebook.svg"></button>
+    </div>
+    <div class="sign-up-container">
+        <input id="username" type="text" placeholder="اسم المستخدم">
+        <input id="email-responsive" type="text" placeholder="البريد الالكتروني">
+        <input id="password-responsive" type="text" placeholder="كلمة المرور">
+    </div>
+    <button class="btn-primary" id="signUp-btn-responsive">انشاء حساب</button>
+    <div class="no-account">
+        <p>
+            لديك حساب بالفعل؟ <span>
+                <a href="loginPage_ar.html">
+                    سجل الدخول
+                </a>
+            </span>
+        </p>
+    </div>
+</div>
+
+
+<!--responsive content End-->

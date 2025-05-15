@@ -11,7 +11,7 @@
     <meta property="og:image" content="~/Images/Logo.png">
     <meta property="og:url" content="https://u-learning.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="image/Logo.png" type="image/icon type">
+    <link rel="icon" href="Images/Logo.png" type="Images/icon type">
     <link href="img/favicon.ico" rel="icon">
     <title>@ViewBag.Title - U-learning - منصة التعلم الإلكتروني</title>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
@@ -22,6 +22,46 @@
     @Styles.Render("~/Styles")
 </head>
 <body>
+    <!-- Navbar Start-->
+    <button onclick="topFunction()" id="scrlUp" title="Go to top" aria-label="الانتقال إلى أعلى الصفحة">
+        <i class="arrow up"></i>
+    </button>
+    <!-- hamburger menu -->
+    <div class="header">
+        <a href="@Url.Action("Index", "Home")" class="navbar-brand" aria-label="الصفحة الرئيسية">
+            <img src="Images/Logo.png" id="Logo" alt="شعار U-learning">
+        </a>
+        <div class="header-search">
+            <input type="text" class="search-input" placeholder="ابحث عن ...." aria-label="بحث">
+            <button class="search-button" aria-label="تنفيذ البحث">ابحث</button>
+        </div>
+        <a href="@Url.Action("Login", "Users")" class="profile-icon" aria-label="الملف الشخصي">
+            <i class="fas fa-user"></i>
+        </a>
+        <nav class="hamburger-btn" aria-label="قائمة الهاتف المحمول">
+            <div class="hamburger" role="button" aria-expanded="false" aria-controls="off-screen-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="off-screen-menu" role="navigation" aria-label="القائمة الرئيسية">
+        <ul>
+            <a href="@Url.Action("Index", "Courses")">
+            <li>تصفح المسارات</li>
+            </a>
+            <a href="@Url.Action("Index", "Home")">
+            <li>الرئيسية</li>
+            </a>
+            <a href="@Url.Action("About", "Home")">
+            <li>عننا</li>
+            </a>
+        </ul>
+    </div>
+    <!-- end hamburger -->
     <div style="height:106px">
         <header class="site-header" role="banner">
             <div class="header-container">
@@ -38,10 +78,10 @@
                     </div>
                 </div>
                 <div class="auth-section">
-                    <a href="@Url.Action("Login", "Account")">
+                    <a href="@Url.Action("Login", "Users")">
                         <button class="btn-outline auth-header">تسجيل دخول</button>
                     </a>
-                    <a href="@Url.Action("Register", "Account")">
+                    <a href="@Url.Action("Register", "Users")">
                         <button class="btn-primary auth-header">إنشاء حساب</button>
                     </a>
                 </div>
@@ -49,32 +89,32 @@
         </header>
     </div>
     <!-- content -->
-    
-        @RenderBody()
-        
-    
-        </div>
-        <!-- Footer -->
-        <footer class="site-footer">
-            <div class="footer-container">
-                <div class="footer-brand">
-                    <h2>U-<span class="footer-brand-span">Learning</span></h2>
-                </div>
-                <nav class="footer-nav">
-                    <a href="@Url.Action("Index", "Home")" class="footer-link">الرئيسية</a>
-                    <a href="@Url.Action("About", "Home")" class="footer-link">عننا</a>
-                    <a href="@Url.Action("Contact", "Home")" class="footer-link">اتصل بنا</a>
-                    <a href="html/AllCourses.html" class="footer-link">عرض المسارات</a>
-                    <a href="@Url.Action("Index","Instructors")" class="footer-link">انضم كمحاضر</a>
-                </nav>
-                <div class="footer-copyright">
-                    <p>جميع الحقوق محفوظة © 2025</p>
-                </div>
-            </div>
-        </footer>
 
-        <script src='Scripts/main.js'></script>
-        <script src="Scripts/header.js"></script>
-        @RenderSection("scripts", required: false)
+    @RenderBody()
+
+
+    </div>
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>U-<span class="footer-brand-span">Learning</span></h2>
+            </div>
+            <nav class="footer-nav">
+                <a href="@Url.Action("Index", "Home")" class="footer-link">الرئيسية</a>
+                <a href="@Url.Action("About", "Home")" class="footer-link">عننا</a>
+                <a href="@Url.Action("Contact", "Home")" class="footer-link">اتصل بنا</a>
+                <a href="@Url.Action("Index", "Courses")" class="footer-link">عرض المسارات</a>
+                <a href="@Url.Action("Index","Instructors")" class="footer-link">انضم كمحاضر</a>
+            </nav>
+            <div class="footer-copyright">
+                <p>جميع الحقوق محفوظة © 2025</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src='Scripts/Shared/main.js'></script>
+    <script src="Scripts/Shared/header.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
