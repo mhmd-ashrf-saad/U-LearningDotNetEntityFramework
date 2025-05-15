@@ -19,7 +19,22 @@ namespace U_LearningNET.Controllers
         {
             var courses = db.Courses.Include(c => c.Instructors);
             return View(courses.ToList());
+
         }
+
+        //GET: Latest Courses
+        public ActionResult Latest()
+        {
+            // Fetch the latest 3 courses (adjust the number as needed)
+            var latestCourses = db.Courses
+                .OrderByDescending(c => c.course_id) // Or use .OrderByDescending(c => c.created_at) if you have a date field
+                .Take(3)
+                .ToList();
+
+            return PartialView("_LatestCourses", latestCourses);
+        }
+
+
 
         // GET: Courses/Details/5
         public ActionResult Details(int? id)

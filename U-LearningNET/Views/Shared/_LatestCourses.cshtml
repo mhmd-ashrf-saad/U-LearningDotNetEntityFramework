@@ -1,0 +1,37 @@
+﻿@model IEnumerable<U_LearningNET.Models.Courses>
+
+<div class="courses-container">
+    @foreach (var course in Model)
+    {
+        <a href="@Url.Action("Details", "Courses", new { id = course.course_id })" class="course-link">
+            <div class="course-card" role="article">
+                <div class="course-image">
+                    @*<img src="@course.ImageUrl" alt="@course.title" loading="lazy" />*@
+                </div>
+                <div class="course-info">
+                    <h4>@course.title</h4>
+                    <div class="course-meta">
+                        <div class="course-price">Price</div>
+                        <div class="instructor-info">
+                            <div class="instructor-details">
+                                <div class="instructor-name">
+                                    @course.Instructors.Users.first_name @course.Instructors.Users.last_name
+                                </div>
+                                <div class="instructor-title">@course.Instructors.Users.role</div>
+                            </div>
+                            <div class="instructor">
+                                <img src="@course.Instructors.Users.photo" alt="المدرب" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="course-actions">
+                        <button class="course-btn btn-enroll">اشترك الآن</button>
+                        <button class="course-btn btn-details">الدخول للكورس</button>
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+</div>
+
+
