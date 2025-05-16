@@ -23,7 +23,13 @@
     display: flex;
     gap: 87px;
 }
-
+.error-message {
+    color: #ff0000;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
 .right {
     width: 37%;
     margin-top: 70px;
@@ -87,11 +93,22 @@
     border-width: 1px;
     height: 5vh;
 }
+.toggle-password {
+    right: auto;
+    left: 15px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+    .toggle-password:hover {
+        color: var(--button);
+    }
 
 .login-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: center;
 }
 
 #loc-card {
@@ -147,6 +164,7 @@
 .login-to-account {
     color: var(--primary);
     font-size: 24px;
+    font-weight: 500;
 }
 
 .divider {

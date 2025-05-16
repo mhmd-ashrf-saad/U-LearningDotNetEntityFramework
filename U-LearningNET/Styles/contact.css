@@ -84,17 +84,6 @@
   resize: vertical;
 }
 
-.btn-primary {
-  width: 100%;
-  padding: 12px;
-  background: var(--button);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
 
 .btn-primary:hover {
   background: var(--hover);

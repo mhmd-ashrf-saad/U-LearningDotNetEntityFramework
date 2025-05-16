@@ -12,7 +12,7 @@ namespace U_LearningNET.Controllers
 {
     public class CoursesController : Controller
     {
-        private collegeSystemEntities db = new collegeSystemEntities();
+        private collegeSystemEntities1 db = new collegeSystemEntities1();
 
         // GET: Courses
         public ActionResult Index()

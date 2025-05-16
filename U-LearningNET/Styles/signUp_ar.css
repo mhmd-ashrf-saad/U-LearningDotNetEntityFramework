@@ -15,17 +15,18 @@
   justify-content: space-between;
   margin: 0 100px;
 }
-.btn-primary{
-    display:none;
-}
 .right-nav {
   display: flex;
   gap: 87px;
 }
+
+#register-btn {
+    display: none;
+}
 .right {
-  width: 37%;
-  margin-top: 70px;
-  margin-right: 0; /* Remove fixed margin-right: 100px */
+    width: 37%;
+    margin-top: 70px;
+    margin-right: 0; /* Remove fixed margin-right: 100px */
 }
 .left {
   width: 50vw;

@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using U_LearningNET.Models;
-
+using System.Web.Security;
 namespace U_LearningNET.Controllers
 {
     public class UsersController : Controller
@@ -24,10 +24,31 @@ namespace U_LearningNET.Controllers
             return View();
         }
 
+        //Login Authorizattion
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string username, string password)
+        {
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                TempData["ErrorMessage"] = "اسم المستخدم وكلمة المرور مطلوبان.";
+                return View();
+            }
+
+            var user = db.Users.FirstOrDefault(u => u.username == username && u.password == password);
+            if (user == null)
+            {
+                TempData["ErrorMessage"] = "اسم المستخدم أو كلمة المرور غير صحيحة.";
+                return View();
+            }
+
+            FormsAuthentication.SetAuthCookie(username, false);
+            return RedirectToAction("Index", "Home");
+        }
 
 
 
-        private collegeSystemEntities db = new collegeSystemEntities();
+        private collegeSystemEntities1 db = new collegeSystemEntities1();
 
         // GET: Users
         public ActionResult Index()

@@ -25,6 +25,8 @@ namespace U_LearningNET.Models
         public string title { get; set; }
         public string description { get; set; }
         public Nullable<int> instructor_id { get; set; }
+        public Nullable<decimal> price { get; set; }
+        public string image_url { get; set; }
     
         public virtual Instructors Instructors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

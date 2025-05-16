@@ -13,10 +13,10 @@ namespace U_LearningNET.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class collegeSystemEntities : DbContext
+    public partial class collegeSystemEntities1 : DbContext
     {
-        public collegeSystemEntities()
-            : base("name=collegeSystemEntities")
+        public collegeSystemEntities1()
+            : base("name=collegeSystemEntities1")
         {
         }
     

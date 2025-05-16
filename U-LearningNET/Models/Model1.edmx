@@ -13,6 +13,8 @@
           <Property Name="title" Type="nvarchar" MaxLength="200" />
           <Property Name="description" Type="nvarchar(max)" />
           <Property Name="instructor_id" Type="int" />
+          <Property Name="price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="image_url" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Materials">
           <Key>
@@ -69,6 +71,7 @@
           <Property Name="photo" Type="varbinary(max)" />
           <Property Name="password" Type="nvarchar" MaxLength="255" />
           <Property Name="role" Type="nvarchar" MaxLength="20" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK__Courses__instruc__4222D4EF">
           <End Role="Instructors" Type="Self.Instructors" Multiplicity="0..1">
@@ -216,6 +219,8 @@
           <Property Name="title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="instructor_id" Type="Int32" />
+          <Property Name="price" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="image_url" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Instructors" Relationship="Self.FK__Courses__instruc__4222D4EF" FromRole="Courses" ToRole="Instructors" />
           <NavigationProperty Name="Materials" Relationship="Self.FK__Materials__cours__45F365D3" FromRole="Courses" ToRole="Materials" />
           <NavigationProperty Name="Posts" Relationship="Self.FK__Posts__course_id__49C3F6B7" FromRole="Courses" ToRole="Posts" />
@@ -282,6 +287,7 @@
           <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="role" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Posts" Relationship="Self.FK__Posts__user_id__4AB81AF0" FromRole="Users" ToRole="Posts" />
           <NavigationProperty Name="Instructors" Relationship="Self.FK__Instructo__instr__3C69FB99" FromRole="Users" ToRole="Instructors" />
           <NavigationProperty Name="Staff" Relationship="Self.FK__Staff__staff_id__3F466844" FromRole="Users" ToRole="Staff" />
@@ -383,7 +389,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="collegeSystemEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="collegeSystemEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Courses" EntityType="Self.Courses" />
           <EntitySet Name="Materials" EntityType="Self.Materials" />
           <EntitySet Name="Posts" EntityType="Self.Posts" />
@@ -425,7 +431,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="collegeSystemModelStoreContainer" CdmEntityContainer="collegeSystemEntities">
+        <EntityContainerMapping StorageEntityContainer="collegeSystemModelStoreContainer" CdmEntityContainer="collegeSystemEntities1">
           <EntitySetMapping Name="Courses">
             <EntityTypeMapping TypeName="collegeSystemModel.Courses">
               <MappingFragment StoreEntitySet="Courses">
@@ -433,6 +439,8 @@
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="instructor_id" ColumnName="instructor_id" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="image_url" ColumnName="image_url" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -495,6 +503,7 @@
                 <ScalarProperty Name="photo" ColumnName="photo" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="username" ColumnName="username" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

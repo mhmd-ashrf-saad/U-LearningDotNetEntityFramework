@@ -15,21 +15,26 @@
                 <a href="@Url.Action("Register", "Users")">
                     <p id="signUp">إنشاء حساب</p>
                 </a>
-
             </div>
             <div class="card-body">
                 <p class="login-to-account">سجل الدخول إلى حسابك</p>
-                <div class="login-form">
-                    <input type="text" class="username" placeholder="اسم المستخدم">
-                    <input type="password" class="password " placeholder="كلمة المرور">
-                </div>
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class="error-message" style="color: red; margin-bottom: 15px; text-align: center;">
+                        @TempData["ErrorMessage"]
+                    </div>
+                }
+                @using (Html.BeginForm("Login", "Users", FormMethod.Post, new { @class = "login-form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <input type="text" name="username" class="username" placeholder="اسم المستخدم">
+                    <input type="password" name="password" class="password" placeholder="كلمة المرور">
+                    <button type="submit" class="btn-primary" id="login-btn2">تسجيل الدخول</button>
+                }
                 <a href="forgotPassword.html">
                     <p class="forget-pass">هل نسيت كلمة المرور؟</p>
                 </a>
                 <div class="login-auth">
-                    <a href="@Url.Action("Login", "Users")">
-                        <button class="btn-primary" id="login-btn2">تسجيل الدخول</button>
-                    </a>
                     <p>
                         ليس لديك حساب؟ <span>
                             <a href="@Url.Action("Register", "Users")">
@@ -45,15 +50,6 @@
                 </div>
                 <div class="login-method">
                     <button class="google-login">Google Account<img src="../Images/Google%20Plus.png"></button>
-                    <!-- <div id="g_id_onload"
-                        data-client_id="129698529287-g0cc9vd47bvmhttd1luao7k2kubkn7b6.apps.googleusercontent.com"
-                        data-context="signin" data-ux_mode="popup" data-login_uri="loginCallback"
-                        data-auto_prompt="false">
-                    </div>
-
-                    <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="filled_blue"
-                        data-text="signin_with" data-size="large" data-locale="en" data-logo_alignment="left">
-                    </div> -->
                     <button class="facebook-login">Facebook<img src="../Images/facebook.svg"></button>
                 </div>
             </div>
@@ -65,6 +61,4 @@
             <img src="../Images/LoginPage/illustration.png" alt="banner">
         </div>
     </div>
-
 </div>
-
