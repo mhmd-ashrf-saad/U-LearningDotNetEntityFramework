@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<U_LearningNET.Models.Courses>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "All Courses";
 }
 <link href="~/Styles/AllCourses.css" rel="stylesheet" />
 
@@ -13,7 +13,14 @@
             <a href="@Url.Action("Details", "Courses", new { id = course.course_id })">
                 <div class="course-card">
                     <div class="course-image">
-                        <!--<img src="#" alt="@course.title" />-->@* add course image *@
+                        @if (!string.IsNullOrEmpty(course.image_url))
+                        {
+                            <img src="@Url.Content(course.image_url)" alt="@course.title" />
+                        }
+                        else
+                        {
+                            <img src="~/Images/default-course.png" alt="No Image" />
+                        }
                     </div>
                     <div class="course-info">
                         <h4>@course.title</h4>
@@ -25,7 +32,14 @@
                                     <div class="instructor-title">@course.Instructors.Users.profile</div>
                                 </div>
                                 <div class="instructor">
-                                    <img src="@course.Instructors.Users.photo" alt="المدرب" />
+                                    @if (course.Instructors != null && course.Instructors.Users != null && course.Instructors.Users.photo != null)
+                                    {
+                                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(course.Instructors.Users.photo)" alt="المدرب" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Images/user2.png" alt="المدرب" />
+                                    }
                                 </div>
                             </div>
                         </div>

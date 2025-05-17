@@ -3,14 +3,15 @@
 @{
     ViewBag.Title = "Edit";
 }
+<link href="~/Styles/forms.css" rel="stylesheet" />
 
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Courses</h4>
         <hr />
@@ -31,6 +32,17 @@
                 @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
             </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("image_url", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="PhotoFile" accept="image/*" />
+            </div>
+            @if (!string.IsNullOrEmpty(Model.image_url))
+            {
+                <img src="@Url.Content(Model.image_url)" alt="Course Image" style="max-width:100px;" />
+            }
         </div>
 
         <div class="form-group">

@@ -6,7 +6,14 @@
         <a href="@Url.Action("Details", "Courses", new { id = course.course_id })" class="course-link">
             <div class="course-card" role="article">
                 <div class="course-image">
-                    @*<img src="@course.ImageUrl" alt="@course.title" loading="lazy" />*@
+                    @if (!string.IsNullOrEmpty(course.image_url))
+                    {
+                        <img src="@Url.Content(course.image_url)" alt="@course.title" />
+                    }
+                    else
+                    {
+                        <img src="~/Images/default-course.png" alt="No Image" />
+                    }
                 </div>
                 <div class="course-info">
                     <h4>@course.title</h4>
@@ -17,10 +24,17 @@
                                 <div class="instructor-name">
                                     @course.Instructors.Users.first_name @course.Instructors.Users.last_name
                                 </div>
-                                <div class="instructor-title">@course.Instructors.Users.role</div>
+                                <div class="instructor-title">@course.Instructors.Users.profile</div>
                             </div>
                             <div class="instructor">
-                                <img src="@course.Instructors.Users.photo" alt="المدرب" />
+                                @if (course.Instructors != null && course.Instructors.Users != null && course.Instructors.Users.photo != null)
+                                {
+                                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(course.Instructors.Users.photo)" alt="المدرب" />
+                                }
+                                else
+                                {
+                                    <img src="~/Images/user2.png" alt="المدرب" /> 
+                                }
                             </div>
                         </div>
                     </div>

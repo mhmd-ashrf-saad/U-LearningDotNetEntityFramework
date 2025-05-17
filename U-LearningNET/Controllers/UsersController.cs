@@ -86,8 +86,15 @@ namespace U_LearningNET.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "user_id,first_name,last_name,phone,age,profile,photo,password,role")] Users users)
+        public ActionResult Create([Bind(Include = "user_id,first_name,username,last_name,phone,age,profile,photo,password,role")] Users users, HttpPostedFileBase PhotoFile)
         {
+            if (PhotoFile != null && PhotoFile.ContentLength > 0)
+            {
+                using (var reader = new System.IO.BinaryReader(PhotoFile.InputStream))
+                {
+                    users.photo = reader.ReadBytes(PhotoFile.ContentLength);
+                }
+            }
             if (ModelState.IsValid)
             {
                 db.Users.Add(users);
@@ -124,8 +131,16 @@ namespace U_LearningNET.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "user_id,first_name,last_name,phone,age,profile,photo,password,role")] Users users)
+        public ActionResult Edit([Bind(Include = "user_id,first_name,last_name,username,phone,age,profile,photo,password,role")] Users users, HttpPostedFileBase PhotoFile)
         {
+
+            if (PhotoFile != null && PhotoFile.ContentLength > 0)
+            {
+                using (var reader = new System.IO.BinaryReader(PhotoFile.InputStream))
+                {
+                    users.photo = reader.ReadBytes(PhotoFile.ContentLength);
+                }
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(users).State = EntityState.Modified;

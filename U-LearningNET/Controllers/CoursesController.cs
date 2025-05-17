@@ -27,9 +27,10 @@ namespace U_LearningNET.Controllers
         {
             // Fetch the latest 3 courses (adjust the number as needed)
             var latestCourses = db.Courses
-                .OrderByDescending(c => c.course_id) // Or use .OrderByDescending(c => c.created_at) if you have a date field
-                .Take(3)
-                .ToList();
+     .Include(c => c.Instructors.Users)
+     .OrderByDescending(c => c.course_id)
+     .Take(3)
+     .ToList();
 
             return PartialView("_LatestCourses", latestCourses);
         }
@@ -54,8 +55,15 @@ namespace U_LearningNET.Controllers
         // GET: Courses/Create
         public ActionResult Create()
         {
-            ViewBag.instructor_id = new SelectList(db.Instructors, "instructor_id", "bio");
-            return View();
+            
+            ViewBag.instructor_id = new SelectList(
+                  db.Users.Select(u => new {
+                      user_id = u.user_id,
+                      DisplayText = u.user_id + " - " + u.first_name + " " + u.last_name
+                  }),
+                  "user_id",
+                  "DisplayText"
+              ); return View();
         }
 
         // POST: Courses/Create
@@ -63,8 +71,18 @@ namespace U_LearningNET.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "course_id,title,description,instructor_id")] Courses courses)
+        public ActionResult Create([Bind(Include = "course_id,title,description,instructor_id")] Courses courses, HttpPostedFileBase PhotoFile)
         {
+            if (PhotoFile != null && PhotoFile.ContentLength > 0)
+            {
+                // Generate a unique file name
+                var fileName = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(PhotoFile.FileName);
+                var path = System.IO.Path.Combine(Server.MapPath("~/Images/Courses/"), fileName);
+                PhotoFile.SaveAs(path);
+                // Save the relative path to the database
+                courses.image_url = "~/Images/Courses/" + fileName;
+            }
+
             if (ModelState.IsValid)
             {
                 db.Courses.Add(courses);
@@ -72,9 +90,10 @@ namespace U_LearningNET.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.instructor_id = new SelectList(db.Instructors, "instructor_id", "bio", courses.instructor_id);
+            // ... your ViewBag code ...
             return View(courses);
         }
+
 
         // GET: Courses/Edit/5
         public ActionResult Edit(int? id)
@@ -88,8 +107,14 @@ namespace U_LearningNET.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.instructor_id = new SelectList(db.Instructors, "instructor_id", "bio", courses.instructor_id);
-            return View(courses);
+            ViewBag.instructor_id = new SelectList(
+                  db.Users.Select(u => new {
+                      user_id = u.user_id,
+                      DisplayText = u.user_id + " - " + u.first_name + " " + u.last_name
+                  }),
+                  "user_id",
+                  "DisplayText"
+              ); return View(courses);
         }
 
         // POST: Courses/Edit/5
@@ -97,17 +122,27 @@ namespace U_LearningNET.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "course_id,title,description,instructor_id")] Courses courses)
+        public ActionResult Edit([Bind(Include = "course_id,title,description,instructor_id,image_url")] Courses courses, HttpPostedFileBase PhotoFile)
         {
+            if (PhotoFile != null && PhotoFile.ContentLength > 0)
+            {
+                var fileName = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(PhotoFile.FileName);
+                var path = System.IO.Path.Combine(Server.MapPath("~/Images/Courses/"), fileName);
+                PhotoFile.SaveAs(path);
+                courses.image_url = "~/Images/Courses/" + fileName;
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(courses).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.instructor_id = new SelectList(db.Instructors, "instructor_id", "bio", courses.instructor_id);
+
+            // ... your ViewBag code ...
             return View(courses);
         }
+
 
         // GET: Courses/Delete/5
         public ActionResult Delete(int? id)

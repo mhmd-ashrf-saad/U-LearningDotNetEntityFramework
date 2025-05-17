@@ -39,9 +39,17 @@ namespace U_LearningNET.Controllers
         // GET: Instructors/Create
         public ActionResult Create()
         {
-            ViewBag.instructor_id = new SelectList(db.Users, "user_id", "first_name");
+            ViewBag.instructor_id = new SelectList(
+                db.Users.Select(u => new {
+                    user_id = u.user_id,
+                    DisplayText = u.user_id + " - " + u.first_name + " " + u.last_name
+                }),
+                "user_id",
+                "DisplayText"
+            );
             return View();
         }
+
 
         // POST: Instructors/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
@@ -57,9 +65,18 @@ namespace U_LearningNET.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.instructor_id = new SelectList(db.Users, "user_id", "first_name", instructors.instructor_id);
+            ViewBag.instructor_id = new SelectList(
+                db.Users.Select(u => new {
+                    user_id = u.user_id,
+                    DisplayText = u.user_id + " - " + u.first_name + " " + u.last_name
+                }),
+                "user_id",
+                "DisplayText",
+                instructors.instructor_id
+            );
             return View(instructors);
         }
+
 
         // GET: Instructors/Edit/5
         public ActionResult Edit(int? id)
@@ -73,8 +90,15 @@ namespace U_LearningNET.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.instructor_id = new SelectList(db.Users, "user_id", "first_name", instructors.instructor_id);
-            return View(instructors);
+            ViewBag.instructor_id = new SelectList(
+                           db.Users.Select(u => new {
+                               user_id = u.user_id,
+                               DisplayText = u.user_id + " - " + u.first_name + " " + u.last_name
+                           }),
+                           "user_id",
+                           "DisplayText",
+                           instructors.instructor_id
+                       ); return View(instructors);
         }
 
         // POST: Instructors/Edit/5
@@ -90,8 +114,15 @@ namespace U_LearningNET.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.instructor_id = new SelectList(db.Users, "user_id", "first_name", instructors.instructor_id);
-            return View(instructors);
+            ViewBag.instructor_id = new SelectList(
+                           db.Users.Select(u => new {
+                               user_id = u.user_id,
+                               DisplayText = u.user_id + " - " + u.first_name + " " + u.last_name
+                           }),
+                           "user_id",
+                           "DisplayText",
+                           instructors.instructor_id
+                       ); return View(instructors);
         }
 
         // GET: Instructors/Delete/5
