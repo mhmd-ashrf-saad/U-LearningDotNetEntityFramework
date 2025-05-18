@@ -56,7 +56,7 @@
 
                     </span>
                     <div class="instructor">
-                        <img src="../../image/Home/amir.png" alt="instructor image" class="instructor-image">
+                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.Instructors.Users.photo)" alt="instructor image" class="instructor-image">
                         <div class="text-instructor">
                             <span class="instructor-name">
                                 @Html.DisplayFor(model => model.Instructors.Users.first_name) @Html.DisplayFor(model => model.Instructors.Users.last_name)
@@ -74,7 +74,6 @@
 </div>
 
 
-<h2>Details</h2>
 
 @Html.ActionLink("Edit", "Edit", new { id = Model.course_id }) |
 @Html.ActionLink("Back to List", "Index")
