@@ -25,7 +25,7 @@ namespace U_LearningNET.Controllers
         //GET: Latest Courses
         public ActionResult Latest()
         {
-            // Fetch the latest 3 courses (adjust the number as needed)
+            
             var latestCourses = db.Courses
      .Include(c => c.Instructors.Users)
      .OrderByDescending(c => c.course_id)
